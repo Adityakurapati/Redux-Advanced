@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "userId": 1,
+      "id": "1",
+      "title": "make HomeWork",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": "2",
+      "title": "buy groceries",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": "3",
+      "title": "clean the house",
+      "completed": true
+    },
+    {
+      "userId": 2,
+      "id": "4",
+      "title": "pay bills",
+      "completed": false
+    },
+    {
+      "userId": 2,
+      "id": "5",
+      "title": "exercise",
+      "completed": true
+    }
+  ]
+}
