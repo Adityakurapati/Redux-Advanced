@@ -10,14 +10,16 @@ export const TodoList=() =>
         const [ addTodo ]=useAddTodoMutation();
         const [ updateTodo ]=useUpdateTodoMutation();
         const [ deleteTodo ]=useDeleteTodoMutation();
+
         const handleSubmit=( e ) =>
         {
                 e.preventDefault();
                 if ( todo.trim() )
                 {
-                        // Handle submitting the todo here, e.g., save to a list or database
-                        console.log( 'Submitting todo:', todo );
-                        setTodo( '' );
+                        addTodo( { title: todo, completed: false } )
+                                .unwrap()
+                                .then( () => setTodo( '' ) )
+                                .catch( ( error ) => console.error( 'Failed to add todo:', error ) );
                 }
         };
 
@@ -38,10 +40,9 @@ export const TodoList=() =>
         let content;
         if ( isLoading )
         {
-                content="<p>Loading...</p>";
+                content=<p>Loading...</p>;
         } else if ( isSuccess )
         {
-                // content=JSON.stringify( todos );
                 content=todos.map( todo => (
                         <article key={ todo.id }>
                                 <div>
@@ -51,14 +52,14 @@ export const TodoList=() =>
                                                 onChange={ () => updateTodo( { ...todo, completed: !todo.completed } ) } />
                                         <label htmlFor={ todo.id }>{ todo.title }</label>
                                 </div>
-                                <button onClick={ () => deleteTodo( { id: todo.id } ) }>
+                                <button onClick={ () => deleteTodo( todo.id ) }>
                                         <FontAwesomeIcon icon={ faTrash } />
                                 </button>
                         </article>
-                ) )
+                ) );
         } else if ( isError )
         {
-                content=<p>{ error }</p>
+                content=<p>{ `Error: ${ error.status } ${ error.error }` }</p>;
         }
 
         return (

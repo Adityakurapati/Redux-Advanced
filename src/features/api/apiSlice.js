@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+//Data Getting Cached -Issue SOlved 
 export const apiSlice=createApi( {
         reducerPath: 'api',
         baseQuery: fetchBaseQuery( { baseUrl: 'http://localhost:3500' } ),

@@ -2,12 +2,6 @@
   "todos": [
     {
       "userId": 1,
-      "id": "1",
-      "title": "make HomeWork",
-      "completed": false
-    },
-    {
-      "userId": 1,
       "id": "2",
       "title": "buy groceries",
       "completed": false
@@ -29,6 +23,11 @@
       "id": "5",
       "title": "exercise",
       "completed": true
+    },
+    {
+      "id": "9342",
+      "title": "jh",
+      "completed": false
     }
   ]
 }
